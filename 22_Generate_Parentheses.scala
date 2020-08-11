@@ -12,8 +12,7 @@ object Solution {
 
     def go(leftCnt: Int, rightCnt: Int, cur: String): Unit = {
       if (leftCnt == n && rightCnt == n) parentheses += cur
-      else if (leftCnt == n && rightCnt < n) go(leftCnt, rightCnt + 1, cur + ")")
-      else if (leftCnt < rightCnt) return
+      else if (leftCnt < rightCnt || leftCnt > n) return
       else {
         go(leftCnt + 1, rightCnt, cur + "(")
         go(leftCnt, rightCnt + 1, cur + ")")
