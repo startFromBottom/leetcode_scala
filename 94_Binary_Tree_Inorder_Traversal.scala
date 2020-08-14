@@ -13,7 +13,7 @@ class TreeNode(_value: Int = 0, _left: TreeNode = null, _right: TreeNode = null)
 }
 
 object Solution {
-  // recursion solution
+  // recursive solution
   def inorderTraversal(root: TreeNode): List[Int] = {
 
     val res = new collection.mutable.ListBuffer[Int]()
@@ -52,6 +52,15 @@ object Solution2 {
     }
 
     result
+  }
+
+}
+
+object Solution3 {
+  // recursive solution (more functional)
+  def inorderTraversal(root: TreeNode): List[Int] = root match {
+    case null => List()
+    case _ => inorderTraversal(root.left) ::: List(root.value) ::: inorderTraversal(root.right)
   }
 
 }
